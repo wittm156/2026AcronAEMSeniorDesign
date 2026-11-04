@@ -1,4 +1,4 @@
-# eVTOL Flight Simulator — Senior Design 2025
+# eVTOL Flight Simulator — Senior Design 2026
 
 A Python-based flight simulation environment integrating a custom graphical interface, JSBSim-based physics, and a modular architecture designed to support hybrid AI-copilot development.
 
