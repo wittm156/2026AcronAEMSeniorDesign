@@ -1,0 +1,62 @@
+qwen2.5-coder:7b
+
+It looks like you're interested in running a server using the Ollama library. Ollama is a Python library for
+building and deploying language models, and "ollama serve" suggests you want to start a server to serve a model
+using this library.
+
+Here's a basic example of how you might set up a server to serve a model using Ollama:
+
+1. **Install Ollama**: First, you need to install the Ollama library. You can do this using pip:
+
+    ```bash
+    pip install ollama
+    ```
+
+2. **Create a Model**: Make sure you have a model that you want to serve. For this example, let's assume you have
+a pre-trained model saved as `my_model`.
+
+3. **Create a Server Script**: Create a Python script to start the server. Here's a simple example:
+
+    ```python
+    from ollama import serve
+
+    # Load your model
+    model = serve.load_model('my_model')
+
+    # Define the handler function
+    def handler(text):
+        return model(text)
+
+    # Start the server
+    serve.run(handler, port=5000)
+    ```
+
+4. **Run the Server**: Save the script to a file, for example `serve_model.py`, and run it:
+
+    ```bash
+    python serve_model.py
+    ```
+
+    This will start a server on port 5000, and you can interact with it using HTTP requests.
+
+5. **Interact with the Server**: You can use tools like `curl` or Postman to interact with the server. For
+example, to send a request with the text "Hello, world!", you can use:
+
+    ```bash
+    curl -X POST http://localhost:5000 -d "Hello, world!"
+    ```
+
+This is a basic example to get you started. Depending on your specific needs, you might need to customize the
+server to handle different types of requests, manage state, or integrate with other systems.
+
+# Download the model once
+ollama pull qwen3:4b
+ollama run qwen3:4b
+ollama serve
+
+Make sure to quit server when done otherwise it will keep running
+/bye if in shat
+Ctrl C to stop
+or go to icon in startup apps in the bottom corner of windows and press quit
+
+to check if running do this Invoke-RestMethod http://127.0.0.1:11434/api/tags
